@@ -143,7 +143,7 @@ function paginate(query, options, callback) {
       if (useEstimatedCount === true) {
         countPromise = this.estimatedDocumentCount().exec();
       } else if (typeof useCustomCountFn === 'function') {
-        countPromise = useCustomCountFn();
+        countPromise = useCustomCountFn(query);
       } else {
         // Hack for mongo < v3.4
         if (Object.keys(collation).length > 0) {
